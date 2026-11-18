@@ -1,0 +1,17 @@
+name: probe3
+on:
+  workflow_dispatch:
+
+jobs:
+  checkoutonly:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: show
+        run: |
+          ls -1 | head -5
+          echo "REF=$GITHUB_REF"
