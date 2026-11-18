@@ -22,6 +22,23 @@ jobs:
           cd src
           git log --oneline -1
 
+      - name: Restore native device console
+        id: gxconsole-cache
+        uses: actions/cache@v4
+        with:
+          path: src/Native/DeviceConsole/build/GXDeviceConsole.xcframework
+          key: gxconsole-${{ runner.os }}-v1
+
+      - name: Build native device console
+        if: steps.gxconsole-cache.outputs.cache-hit != 'true'
+        run: |
+          rustup target add aarch64-apple-ios aarch64-apple-ios-sim
+          command -v nasm >/dev/null || brew install nasm
+          command -v cmake >/dev/null || brew install cmake
+          cd src/Native/DeviceConsole
+          chmod +x build-xcframework.sh
+          ./build-xcframework.sh
+
       - name: Build IPA
         run: |
           cd src
