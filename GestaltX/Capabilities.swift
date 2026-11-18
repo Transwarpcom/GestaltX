@@ -167,7 +167,11 @@ struct ModelPreset: Identifiable {
         .init(id: "A3260", title: "A3260 — Air · United States / Canada", value: "A3260"),
         .init(id: "A3516", title: "A3516 — Air · Japan", value: "A3516"),
         .init(id: "A3517", title: "A3517 — Air · Other regions", value: "A3517"),
-        .init(id: "A3518", title: "A3518 — Air · China mainland", value: "A3518")
+        .init(id: "A3518", title: "A3518 — Air · China mainland", value: "A3518"),
+        .init(id: "A3257", title: "A3257 — 17 Pro Max · United States / Puerto Rico", value: "A3257"),
+        .init(id: "A3525", title: "A3525 — 17 Pro Max · Canada / Japan / Middle East", value: "A3525"),
+        .init(id: "A3526", title: "A3526 — 17 Pro Max · Other regions", value: "A3526"),
+        .init(id: "A3527", title: "A3527 — 17 Pro Max · China mainland", value: "A3527")
     ]
 }
 
