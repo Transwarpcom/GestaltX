@@ -1,0 +1,16 @@
+name: probe2
+on:
+  workflow_dispatch:
+
+jobs:
+  envtest:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    env:
+      REF: ${{ github.event.release.tag_name || inputs.ref || github.ref }}
+      TAG: ${{ github.event.release.tag_name || (startsWith(github.ref, 'refs/tags/') && github.ref_name) || '' }}
+    steps:
+      - name: show
+        run: |
+          echo "REF=$REF"
+          echo "TAG=$TAG"
